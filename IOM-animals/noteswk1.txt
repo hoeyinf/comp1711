@@ -1,0 +1,133 @@
+    1  history
+    2  tree
+    3  mkdir example1 example2 example 3
+    4  touch file1.txt
+    5  cd example2#
+    6  ls
+    7  pwd
+    8  mkdir example1 example2 example3
+    9  ls
+   10  cd example2
+   11  mkdir example4
+   12  cd example4
+   13  touch file3.txt
+   14  cd ..
+   15  pwd
+   16  touch file2.txt
+   17  cd ..
+   18  ls
+   19  clear
+   20  tree
+   21  man rmdir
+   22  man rm
+   23  rm 3
+   24  rm -f 3
+   25  rmdir 3
+   26  rmdir example
+   27  clear
+   28  tree
+   29  rmdir example1
+   30  rmdir example3
+   31  rm file1.txt
+   32  cd example2
+   33  ls
+   34  rmdir example4
+   35  cd example4
+   36  ls
+   37  rm file.txt
+   38  rm file3.txt
+   39  cd ..
+   40  rmdir example4
+   41  ls
+   42  rm file2.txt
+   43  cd..
+   44  cd ..
+   45  rmdir example2
+   46  #ls
+   47  ls
+   48  clear
+   49  unzip week1data.zip 
+   50  cat data1.txt
+   51  cat data2.txt
+   52  clear
+   53  cata d*
+   54  clear
+   55  cat *.txt
+   56  cat *.txt > all.txt
+   57  cat all.txt
+   58  clear
+   59  rm all.txt
+   60  grep "Culture" *.txt
+   61  grep "Abba" *.txt | cut -d "," -f 2,3
+   62  grep "Abba" *.txt | cut -d "," -f 2-3
+   63  clear
+   64  cat *.txt | head -n 25
+   65  cat *.txt | head -n 25 | tail -n 1
+   66  history
+   67  clear
+   68  cat *.txt | head -n 42 | tail -n 1
+   69  grep "Eminem" *.txt
+   70  grep "1992" *.txt
+   71* grep " *.txt | cut -d "," -f 4
+   72  man grep
+   73  grep "197*" *.txt
+   74  grep "197" *.txt | cut -d "," -f 2 | sort
+   75  grep "200" *.txt | cut -d "," -f 3 > naughties.txt
+   76  cat naughties.txt
+   77  ls
+   78  grep "200" *.txt
+   79  clear
+   80  history > noteswk1.txt
+   81  rm noteswk1.txt
+   82  mkdir session1
+   83  mv *.txt session1/.
+   84  tree
+   85  wget https://github.com/callaghanmt/shell-training/raw/master/shell.tar.gz
+   86  tar -zxvf shell.tar.gz
+   87  mkdir work
+   88  cd work
+   89  ls
+   90  mkdir input_data results program
+   91  ls
+   92  man touch
+   93  clear
+   94  cd ..
+   95  ls
+   96  git add -A
+   97  git status
+   98  git commit -m "Session 2 work"
+   99  git push
+  100  touch input.txt "Some text"
+  101  rm Some text
+  102  rm "Some text"
+  103  mv input.txt work/input_data | mv input.txt control01.txt
+  104  ls
+  105  tree
+  106  clear
+  107  tree
+  108  mv control01.txt input.txt
+  109  mv input.txt work/input_data
+  110  mv input.txt control01.txt
+  111  mv work/input_data/input.txt work/input_data/control01.txt
+  112  mv work/input_data/control01.txt input.txt
+  113  clear
+  114  mv input.txt work/input_data/control01.txt
+  115  rm -rf work
+  116  cd IOM-animals
+  117  pwd
+  118  cat birds.* | cut -d "," -f 2 | sort
+  119  grep "newt" amphibians.* | cut d "," -f 2
+  120  grep "newt" amphibians.* | cut -d "," -f 2
+  121  grep "common" *.txt | cut -d "," -f 1 | sort
+  122  cat *.txt > allanimals.txt | sort | head -n 50 | tail -n 1
+  123  rm allanimals.txt
+  124  cat *.txt > animals.txt | sort animals.txt 
+  125  rm animals.txt
+  126  history
+  127  cat *.txt | sort | head -n -50 | tail -n 1 > animals.txt
+  128  cat *.txt | sort | head -n -50
+  129  rm animals.*
+  130  cat mammals.* | tail -n 10 | sort
+  131  git add -A
+  132  history
+  133  history > noteswk1.txt
