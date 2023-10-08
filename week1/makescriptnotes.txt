@@ -1,0 +1,33 @@
+    1  history
+    2  name="Hoe"
+    3  echo name
+    4  name="Hoe"
+    5  read name
+    6  touch testscript.sh
+    7  man ls
+    8  ls -l
+    9  chmod +x testscript.sh
+   10  ls -l
+   11  which bash
+   12  ./testscript.sh
+   13  clear
+   14  ./testscript.sh
+   15  cd session1
+   16  mkdir exercise1
+   17  mv *.txt exercise1
+   18  pwd
+   19  mkdir exercise2
+   20  cd..
+   21  cd ..
+   22  mv session1 week1
+   23  mv wildcards noteswk1.txt data IOM-animals some-maths.txt week1
+   24  cd week1
+   25  mv data IOM-animals wildcards some-maths.* session1
+   26  cd session1
+   27  mv data IOM-animals wildcards some-maths.* exercise2
+   28  pwd
+   29  cd ..
+   30  pwd
+   31  ./testscript.sh
+   32  mv testscript.sh createdr.sh
+   33  history > week1/makescriptnotes.txt
