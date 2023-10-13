@@ -1,0 +1,209 @@
+    1  history
+    2  name="Hoe"
+    3  echo name
+    4  name="Hoe"
+    5  read name
+    6  touch testscript.sh
+    7  man ls
+    8  ls -l
+    9  chmod +x testscript.sh
+   10  ls -l
+   11  which bash
+   12  ./testscript.sh
+   13  clear
+   14  ./testscript.sh
+   15  cd session1
+   16  mkdir exercise1
+   17  mv *.txt exercise1
+   18  pwd
+   19  mkdir exercise2
+   20  cd..
+   21  cd ..
+   22  mv session1 week1
+   23  mv wildcards noteswk1.txt data IOM-animals some-maths.txt week1
+   24  cd week1
+   25  mv data IOM-animals wildcards some-maths.* session1
+   26  cd session1
+   27  mv data IOM-animals wildcards some-maths.* exercise2
+   28  pwd
+   29  cd ..
+   30  pwd
+   31  ./testscript.sh
+   32  mv testscript.sh createdr.sh
+   33  history > week1/makescriptnotes.txt
+   34  git add -A
+   35  git commit -m "made a script to make folders for every week"
+   36  git push
+   37  which bash
+   38  man which bash
+   39  man cash
+   40  man bash
+   41  pwd
+   42  cd week2
+   43  pwd
+   44  cd session1
+   45  pwd
+   46  clear
+   47  cd ..
+   48  touch noteswk2.md
+   49  mv noteswk2.md noteswk2.txt
+   50  cd session1
+   51  code first.c
+   52  gcc first.c -o first
+   53  ./first
+   54  gcc first
+   55  gcc first.c -o first
+   56  ./first
+   57  code hellome.c
+   58  gcc first.c -o first
+   59  ./first
+   60  gcc hellome.c -o hellome
+   61  ./hellome
+   62  clear
+   63  gcc hellome.c -o hellome
+   64  code helloage.c
+   65  gcc helloage.c -o helloage
+   66  ./helloage
+   67  touch c_template.txt
+   68  gcc helloage.c -o helloage
+   69  ./helloage
+   70  gcc helloage.c -o helloage
+   71  mv c_template ..
+   72  mv c_template.txt ..
+   73  code adding.c
+   74  cd ..
+   75  mv c_template.txt ..
+   76  cd week2/session1
+   77  cd session1
+   78  gcc adding.c -o adding
+   79  ./adding
+   80  clear
+   81  gcc adding.c -o adding
+   82  ./adding
+   83  gcc adding.c -o adding
+   84  ./adding
+   85  gcc adding.c -o adding
+   86  cd ..
+   87  rm noteswk2.txt
+   88  cd session1
+   89  code rectangle.c
+   90  gcc rectangle.c -o rectangle
+   91  ./rectangle
+   92  gcc rectangle.c -o rectangle
+   93  code ws1ex1.c
+   94  gcc ws1ex1.c -o ws1ex1
+   95  ./ws1ex1
+   96  gcc ws1ex1.c -o ws1ex1
+   97  ./ws1ex1
+   98  code ws1ex2.c
+   99  gcc ws1ex1.c -o ws1ex1
+  100  ./ws1ex1
+  101  gcc ws1ex1.c -o ws1ex1
+  102  ./ws1ex1
+  103  gcc rectangle.c -o rectangle
+  104  ./rectangle
+  105  gcc ws1ex2.c -o ws1ex2
+  106  ./ws1ex2
+  107  code ws1ex3.c
+  108  gcc ws1ex3.c -o ws1ex3
+  109  ./ws1ex3
+  110  gcc ws1ex3.c -o ws1ex3
+  111  ./ws1ex3
+  112  gcc ws1ex3.c -o ws1ex3
+  113  ./ws1ex3
+  114  clear
+  115  code ws1ex4.c
+  116  cd ..
+  117  history > noteswk2p1.txt
+  118  git add -A
+  119  git commit -m "Week 2 Session 1 Done"
+  120  git push
+  121  man code
+  122  man gcc
+  123  cd week2
+  124  cd seesion 2
+  125  cd session2
+  126  code loop.c
+  127  gcc loop.c -o loop
+  128  ./loop
+  129  gcc loop.c -o loop
+  130  ./loop
+  131  gcc loop.c -o loop
+  132  code whileloop.c
+  133  gcc whileloop.c -o whileloop
+  134  ./whileloop
+  135  gcc loop.c -o loop
+  136  gcc whileloop.c -o whileloop
+  137  code slidestuff.c
+  138  gcc slidestuff.c -o slidestuff
+  139  ./slidestuff
+  140  gcc slidestuff.c -o slidestuff
+  141  ./slidestuff
+  142  gcc slidestuff.c -o slidestuff
+  143  ./slidestuff
+  144  gcc slidestuff.c -o slidestuff
+  145  ./slidestuff
+  146  gcc slidestuff.c -o slidestuff
+  147  ./slidestuff
+  148  gcc slidestuff.c -o slidestuff
+  149  ./slidestuff
+  150  gcc slidestuff.c -o slidestuff
+  151  ./slidestuff
+  152  gcc slidestuff.c -o slidestuff
+  153  clear
+  154  code ws2ex1.c
+  155  gcc ws2ex1.c -o ws2ex1
+  156  ./ws2ex1
+  157  gcc ws2ex1.c -o ws2ex1
+  158  ./ws2ex1
+  159  gcc ws2ex1.c -o ws2ex1
+  160  ./ws2ex1
+  161  code ws2ex2.c
+  162  gcc ws2ex2.c -o ws2ex2
+  163  ./ws2ex2
+  164  gcc ws2ex2.c -o ws2ex2
+  165  ./ws2ex2
+  166  gcc ws2ex2.c -o ws2ex2
+  167  ./ws2ex2
+  168  gcc ws2ex2.c -o ws2ex2
+  169  ./ws2ex2
+  170  gcc ws2ex2.c -o ws2ex2
+  171  ./ws2ex2
+  172  gcc ws2ex2.c -o ws2ex2
+  173  ./ws2ex2
+  174  code ws2ex3.c
+  175  gcc ws2ex23c -o ws2exx3
+  176  gcc ws2ex3.c -o ws2ex3
+  177  ./ws2ex3
+  178  code ws2ex4.c
+  179  gcc ws2ex4.c -o ws2ex4
+  180  ./ws2ex4
+  181  code ws2ex5.c
+  182  rm ws2ex5.c
+  183  code reverseHello.c
+  184  gcc reverseHello.c -o reverseHello
+  185  ./reverseHello
+  186  gcc reverseHello.c -o reverseHello
+  187  ./reverseHello
+  188  gcc reverseHello.c -o reverseHello
+  189  ./reverseHello
+  190  gcc reverseHello.c -o reverseHello
+  191  ./reverseHello
+  192  gcc reverseHello.c -o reverseHello
+  193  ./reverseHello
+  194  gcc reverseHello.c -o reverseHello
+  195  ./reverseHello
+  196  gcc reverseHello.c -o reverseHello
+  197  ./reverseHello
+  198  gcc reverseHello.c -o reverseHello
+  199  ./reverseHello
+  200  gcc reverseHello.c -o reverseHello
+  201  ./reverseHello
+  202  gcc reverseHello.c -o reverseHello
+  203  ./reverseHello
+  204  gcc reverseHello.c -o reverseHello
+  205  ./reverseHello
+  206  gcc reverseHello.c -o reverseHello
+  207  ./reverseHello
+  208  cd ..
+  209  history > noteswk2p2.txt
