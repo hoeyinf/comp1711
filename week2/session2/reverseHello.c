@@ -8,7 +8,7 @@ int main (){
     while(Hello[length] != '\0'){
         length ++;
     }
-
+    // range must start from length-1 since last position is just '/0'
     for(int i = length-1; i>=0; i--){
         printf("%c", Hello[i]);
     }
