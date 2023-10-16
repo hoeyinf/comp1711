@@ -1,0 +1,306 @@
+    1  history
+    2  name="Hoe"
+    3  echo name
+    4  name="Hoe"
+    5  read name
+    6  touch testscript.sh
+    7  man ls
+    8  ls -l
+    9  chmod +x testscript.sh
+   10  ls -l
+   11  which bash
+   12  ./testscript.sh
+   13  clear
+   14  ./testscript.sh
+   15  cd session1
+   16  mkdir exercise1
+   17  mv *.txt exercise1
+   18  pwd
+   19  mkdir exercise2
+   20  cd..
+   21  cd ..
+   22  mv session1 week1
+   23  mv wildcards noteswk1.txt data IOM-animals some-maths.txt week1
+   24  cd week1
+   25  mv data IOM-animals wildcards some-maths.* session1
+   26  cd session1
+   27  mv data IOM-animals wildcards some-maths.* exercise2
+   28  pwd
+   29  cd ..
+   30  pwd
+   31  ./testscript.sh
+   32  mv testscript.sh createdr.sh
+   33  history > week1/makescriptnotes.txt
+   34  git add -A
+   35  git commit -m "made a script to make folders for every week"
+   36  git push
+   37  which bash
+   38  man which bash
+   39  man cash
+   40  man bash
+   41  pwd
+   42  cd week2
+   43  pwd
+   44  cd session1
+   45  pwd
+   46  clear
+   47  cd ..
+   48  touch noteswk2.md
+   49  mv noteswk2.md noteswk2.txt
+   50  cd session1
+   51  code first.c
+   52  gcc first.c -o first
+   53  ./first
+   54  gcc first
+   55  gcc first.c -o first
+   56  ./first
+   57  code hellome.c
+   58  gcc first.c -o first
+   59  ./first
+   60  gcc hellome.c -o hellome
+   61  ./hellome
+   62  clear
+   63  gcc hellome.c -o hellome
+   64  code helloage.c
+   65  gcc helloage.c -o helloage
+   66  ./helloage
+   67  touch c_template.txt
+   68  gcc helloage.c -o helloage
+   69  ./helloage
+   70  gcc helloage.c -o helloage
+   71  mv c_template ..
+   72  mv c_template.txt ..
+   73  code adding.c
+   74  cd ..
+   75  mv c_template.txt ..
+   76  cd week2/session1
+   77  cd session1
+   78  gcc adding.c -o adding
+   79  ./adding
+   80  clear
+   81  gcc adding.c -o adding
+   82  ./adding
+   83  gcc adding.c -o adding
+   84  ./adding
+   85  gcc adding.c -o adding
+   86  cd ..
+   87  rm noteswk2.txt
+   88  cd session1
+   89  code rectangle.c
+   90  gcc rectangle.c -o rectangle
+   91  ./rectangle
+   92  gcc rectangle.c -o rectangle
+   93  code ws1ex1.c
+   94  gcc ws1ex1.c -o ws1ex1
+   95  ./ws1ex1
+   96  gcc ws1ex1.c -o ws1ex1
+   97  ./ws1ex1
+   98  code ws1ex2.c
+   99  gcc ws1ex1.c -o ws1ex1
+  100  ./ws1ex1
+  101  gcc ws1ex1.c -o ws1ex1
+  102  ./ws1ex1
+  103  gcc rectangle.c -o rectangle
+  104  ./rectangle
+  105  gcc ws1ex2.c -o ws1ex2
+  106  ./ws1ex2
+  107  code ws1ex3.c
+  108  gcc ws1ex3.c -o ws1ex3
+  109  ./ws1ex3
+  110  gcc ws1ex3.c -o ws1ex3
+  111  ./ws1ex3
+  112  gcc ws1ex3.c -o ws1ex3
+  113  ./ws1ex3
+  114  clear
+  115  code ws1ex4.c
+  116  cd ..
+  117  history > noteswk2p1.txt
+  118  git add -A
+  119  git commit -m "Week 2 Session 1 Done"
+  120  git push
+  121  man code
+  122  man gcc
+  123  pwd
+  124  cd week1/session1
+  125  pwd
+  126  gcc ws1ex4.c -o ws1ex4
+  127  man gcc
+  128  pwd
+  129  gcc ws1ex4.c -o ws1ex4
+  130  cd ..
+  131  cd week2/session1
+  132  gcc ws1ex4.c -o ws1ex4
+  133  ./ws1ex4
+  134  gcc ws1ex4.c -o ws1ex4
+  135  ./ws1ex4
+  136  gcc ws1ex4.c -o ws1ex4
+  137  ./ws1ex4
+  138  gcc ws1ex4.c -o ws1ex4
+  139  code ws1ex5.c
+  140  gcc ws1ex5.c -o ws1ex5
+  141  ./ws1ex5
+  142  gcc ws1ex5.c -o ws1ex5
+  143  ./ws1ex5
+  144  code ws1ex6.c
+  145  gcc ws1ex6.c -o ws1ex6
+  146  ./ws1ex6
+  147  code ws1ex7.c
+  148  gcc ws1ex7.c -o ws1ex7
+  149  ./ws1ex7
+  150  gcc ws1ex7.c -o ws1ex7
+  151  ./ws1ex7
+  152  gcc ws1ex7.c -o ws1ex7
+  153  ./ws1ex7
+  154  gcc ws1ex7.c -o ws1ex7
+  155  ./ws1ex7
+  156  gcc ws1ex7.c -o ws1ex7
+  157  ./ws1ex7
+  158  code ws1ex8.c
+  159  gcc ws1ex8.c -o ws1exx8
+  160  ./ws1ex8
+  161  rm ws1exx8
+  162  gcc ws1ex8.c -o ws1ex8
+  163  ./ws1ex8
+  164  gcc ws1ex8.c -o ws1ex8
+  165  code ws1ex9.c
+  166  gcc ws1ex9.c -o ws1ex9
+  167  ./ws1ex9
+  168  gcc ws1ex9.c -o ws1ex9
+  169  ./ws1ex9
+  170  gcc ws1ex9.c -o ws1ex9
+  171  ./ws1ex9
+  172  gcc ws1ex9.c -o ws1ex9
+  173  ./ws1ex9
+  174  gcc ws1ex9.c -o ws1ex9
+  175  ./ws1ex9
+  176  gcc ws1ex9.c -o ws1ex9
+  177  ./ws1ex9
+  178  code ws1ex10.c
+  179  gcc ws1ex10.c -o ws1ex10
+  180  ./ws1ex10
+  181  gcc ws1ex10.c -o ws1ex10
+  182  ./ws1ex10
+  183  -git add -A
+  184  git add -A
+  185  git commit -m "Week 2 Session 1 exercises complete"
+  186  cd ../..
+  187  pwd
+  188  cd week2/session2
+  189  pwd
+  190  code ws2ex5.c
+  191  gcc ws2ex5.c -o ws2ex5
+  192  ./ws2ex5
+  193  gcc ws2ex5.c -o ws2ex5
+  194  ./ws2ex5
+  195  gcc ws2ex5.c -o ws2ex5
+  196  ./ws2ex5
+  197  gcc ws2ex5.c -o ws2ex5
+  198  ./ws2ex5
+  199  gcc ws2ex5.c -o ws2ex5
+  200  ./ws2ex5
+  201  gcc ws2ex5.c -o ws2ex5
+  202  ./ws2ex5
+  203  gcc ws2ex5.c -o ws2ex5
+  204  ./ws2ex5
+  205  gcc ws2ex5.c -o ws2ex5
+  206  ./ws2ex5
+  207  gcc ws2ex5.c -o ws2ex5
+  208  ./ws2ex5
+  209  gcc ws2ex5.c -o ws2ex5
+  210  ./ws2ex5
+  211  gcc ws2ex5.c -o ws2ex5
+  212  ./ws2ex5
+  213  gcc ws2ex5.c -o ws2ex5
+  214  ./ws2ex5
+  215  gcc ws2ex5.c -o ws2ex5
+  216  clear
+  217  gcc ws2ex5.c -o ws2ex5
+  218  ./ws2ex5
+  219  gcc ws2ex5.c -o ws2ex5
+  220  ./ws2ex5
+  221  gcc ws2ex5.c -o ws2ex5
+  222  code ws2ex6.c
+  223  gcc ws2ex6.c -o ws2ex6
+  224  ./ws2ex6
+  225  gcc ws2ex6.c -o ws2ex6
+  226  clear
+  227  gcc ws2ex6.c -o ws2ex6
+  228  ./ws2ex6
+  229  gcc ws2ex6.c -o ws2ex6
+  230  ./ws2ex6
+  231  gcc ws2ex6.c -o ws2ex6
+  232  ./ws2ex6
+  233  gcc ws2ex6.c -o ws2ex6
+  234  ./ws2ex6
+  235  gcc ws2ex6.c -o ws2ex6
+  236  ./ws2ex6
+  237  git add -A
+  238  git commit -m "Week 2 Session 2 exercises done"
+  239  git push
+  240  cd week3/session1
+  241  pwd
+  242  code ws1ex1.c
+  243  gcc ws1ex1.c -o ws1ex1
+  244  ./ws1ex1
+  245  gcc ws1ex1.c -o ws1ex1
+  246  ./ws1ex1
+  247  gcc ws1ex1.c -o ws1ex1
+  248  ./ws1ex1
+  249  gcc ws1ex1.c -o ws1ex1
+  250  2.3456
+  251  ./ws1ex1
+  252  clear
+  253  code ws1ex2.c
+  254  ./ws1ex1
+  255  gcc ws1ex1.c -o ws1ex1
+  256  ./ws1ex1
+  257  gcc ws1ex2.c -o ws1ex2
+  258  ./ws2ex2
+  259  ./ws1ex2
+  260  clear
+  261  code ws1ex3.c
+  262  clear
+  263  gcc ws1ex3.c -o ws1ex3
+  264  ./ws1ex3
+  265  code exercise.c
+  266  gcc exercise.c -o exercise
+  267  ./exercise
+  268  gcc exercise.c -o exercise
+  269  ./exercise
+  270  gcc exercise.c -o exercise
+  271  66.6
+  272  ./exercise
+  273  gcc ws1ex3.c -o ws1ex3
+  274  code ws1ex4.c
+  275  gcc ws1ex4.c -o ws1ex4
+  276  ./ws1ex4
+  277  clear
+  278  code ws1ex5.c
+  279  gcc ws1ex5.c -o ws1ex5
+  280  ./ws1ex5
+  281  clearclear
+  282  clear
+  283  ./ws1ex5
+  284  gcc ws1ex4.c -o ws1ex4
+  285  code ws1ex6.c
+  286  gcc ws1ex6.c -o ws1ex6
+  287  ./ws1ex6
+  288  gcc ws1ex6.c -o ws1ex6
+  289  ./ws1ex6
+  290  git add -A
+  291  git commit -m "Week 3 Worksheet 1 done."
+  292  gcc ws1ex5.c -o ws1ex5
+  293  ./ws1ex5
+  294  gcc ws1ex5.c -o ws1ex5
+  295  clear
+  296  ./ws1ex5
+  297  cd ..
+  298  cd session1
+  299  pwd
+  300  gcc ws1ex5.c -o ws1ex5
+  301  ./ws1ex5
+  302  -git add -A
+  303  git add -A
+  304  git commit -m "Week 3 Session 1 done"
+  305  cd ..
+  306  history > noteswk3p1.txt
