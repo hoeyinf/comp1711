@@ -4,7 +4,7 @@ int main()
 {
     char *filename = "numbers.dat";
 
-    FILE *file = open_file(filename, "a"); // or "a", "w+", "a+"
+    FILE *file = open_file(filename, "a+"); 
 
     int buffer_size = 100, count = 0;
     char line_buffer[buffer_size];
@@ -16,8 +16,7 @@ int main()
     }
 
     mean = total/count;
-    printf("%g, %d", total, count);
-    fprintf(file, "%g\n", mean);
+    fprintf(file, "\n%g", mean);
 
     fclose(file);
     return 0;
