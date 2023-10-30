@@ -68,7 +68,6 @@ int main() {
     // I based the above from:
     // https://stackoverflow.com/questions/10272896/reading-the-number-of-lines-in-a-file
 
-    
     // printing number of records, using the counter
     printf("Number of records in file: %d\n", lines);
 
