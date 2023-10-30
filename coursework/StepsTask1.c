@@ -44,7 +44,7 @@ void tokeniseRecord(const char *input, const char *delimiter,
 // Complete the main function
 int main() {
 
-    // opening CSV file, and checking it exists
+    // opens the CSV file, and checks if it exists
     char *filename = "FitnessData_2023.csv";
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
@@ -52,31 +52,29 @@ int main() {
         return 1;
     }
 
-    // finds the number of lines in the file
+    // finds the number of lines in the file by reading the file character by character, until end of file (EOF)
     int lines = 0;
-    // reads file character by character, until end of file (EOF)
     char reader = getc(file);
     while (reader != EOF) {
         // increments lines counter when a new line is encountered
         if (reader == '\n'){    
             lines++;
         }
-        // proceed to next character in file
+        // proceeds to next character in file
         reader = getc(file);
     }
-    
     // I based the above from:
     // https://stackoverflow.com/questions/10272896/reading-the-number-of-lines-in-a-file
 
-    // printing number of records, using the counter
+    // prints the number of records, using the lines counter
     printf("Number of records in file: %d\n", lines);
 
-    FITNESS_DATA data[lines]; // creates an array the size of the file read
+    FITNESS_DATA data[lines]; // creates an array based on the size of the file read
 
-    // reset pointer to beginning of file
+    // resets pointer to beginning of file
     rewind(file);
 
-    // reading from file
+    // reads from file
     int buffer = 100, count = 0;
     char line[buffer], date[11], time[6], steps[10]; // the last three are used to store values from tokeniseRecord
     while (fgets(line, buffer, file) != NULL) {
@@ -86,14 +84,16 @@ int main() {
         strcpy(data[count].date, date);
         strcpy(data[count].time, time);
         data[count].steps = atoi(steps);
+        // increments counter
         count++;
     }
 
-    // printing the first three rows of the file
+    // prints the first three rows of the file
     for(int i=0; i<3; i++){
         printf("%s/%s/%d\n", data[i].date, data[i].time, data[i].steps);
     }
-
+    
+    // closes file
     fclose(file);
     return 0;
 }
