@@ -56,11 +56,12 @@ int main()
                "F: Find the longest continuous period where the step count is above 500 steps\n"
                "Q: Quit\n"
                "Enter choice: ");
-        // user input menu choice
+        // user inputs choice
+        // space needed before %c, or it might read \n from entering input, instead of the actual input
         scanf(" %c", &choice);
         switch (choice)
         {
-        case 'A':;
+        case 'A':
             printf("Input filename: ");
             scanf("%s", filename);
             // tries to open filename, prints error message and returns 1 if unable
@@ -154,7 +155,7 @@ int main()
             break;
         case 'Q':
             return 0; // quit
-        default: // when something other than the valid cases above is entered
+        default:      // when something other than the valid cases above is entered
             printf("Invalid choice. Try again.\n");
             break;
         }
