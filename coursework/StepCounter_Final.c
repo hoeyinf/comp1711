@@ -133,15 +133,17 @@ int main()
                 if (data[i].steps > 500)
                 {
                     length++;
-                    if (length > lengthest) // if current period (of 500+ steps) is greater than longest period so far
-                    {
-                        lengthest = length;
-                        end = i; // stores the index of the end of the current longest period
-                    }
                 }
                 else
                 {
-                    length = 0; // resets length when steps <=500 (since it's not consecutive anymore)
+                    // if current period (of 500+ steps) is greater than longest period so far
+                    if (length > lengthest)
+                    {
+                        lengthest = length;
+                        end = i-1; // stores the index of the end of the current longest period (previous index)
+                    }
+                    // resets length (since it's not consecutive anymore)
+                    length = 0;
                 }
             }
             // stores the start/end dates and times
@@ -154,8 +156,9 @@ int main()
                    dateStart, timeStart, dateEnd, timeEnd);
             break;
         case 'Q':
-            return 0; // quit
-        default:      // when something other than the valid cases above is entered
+            // quit
+            return 0;
+        default: // when something other than the valid cases above is entered
             printf("Invalid choice. Try again.\n");
             break;
         }
