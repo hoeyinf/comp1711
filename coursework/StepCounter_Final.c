@@ -154,8 +154,8 @@ int main()
             break;
         case 'Q':
             return 0; // quit
-        default:
-            printf("Invalid choice. Try again.\n"); // if an invalid choice is made
+        default: // when something other than the valid cases above is entered
+            printf("Invalid choice. Try again.\n");
             break;
         }
     }
