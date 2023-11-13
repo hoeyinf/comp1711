@@ -41,6 +41,8 @@ void tokeniseRecord(const char *input, const char *delimiter,
 	{
 		*steps = atoi(token); // changed 'strcpy(steps, token)' to '*steps = atoi(token)'
 	}
+	// Free the duplicated string
+	free(inputCopy);
 }
 
 // Reads and stores records from file into FITNESS_DATA array
