@@ -20,7 +20,8 @@ int main()
     float mean = 0;
 
     FILE *file = open_file(filename, "r");
-    if (!file){
+    if (!file)
+    {
         return 1;
     }
     int total = read_file(file, daily_readings);
@@ -41,8 +42,7 @@ int main()
 
         // this gets rid of the newline character which the user will enter
         // as otherwise this will stay in the stdin and be read next time
-        while (getchar() != '\n')
-            ;
+        while (getchar() != '\n');
 
         // switch statement to control the menu.
         switch (choice)
