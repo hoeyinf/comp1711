@@ -1,3 +1,5 @@
+//TO DO: MOVE FUNCTIONS INTO HEADER FILE
+
 // Struct moved to header file
 #include "FitnessDataStruct.h"
 
@@ -13,7 +15,7 @@ FITNESS_DATA data[200];
 // Inputs: character array representing a row; the delimiter character
 // Ouputs: date character array; time character array; steps character array
 void tokeniseRecord(const char *input, const char *delimiter,
-                    char *date, char *time, char *steps)
+                    char *date, char *time, int *steps) // Changed 'char *steps' to 'int *steps'
 {
     // Create a copy of the input string as strtok modifies the string
     char *inputCopy = strdup(input);
@@ -34,7 +36,7 @@ void tokeniseRecord(const char *input, const char *delimiter,
     token = strtok(NULL, delimiter);
     if (token != NULL)
     {
-        strcpy(steps, token);
+        *steps = atoi(token); //changed 'strcpy(steps, token)' to '*steps = atoi(token)'
     }
 
     // Free the duplicated string
@@ -66,7 +68,7 @@ int main()
             scanf("%s", filename);
             // tries to open filename, prints error message and returns 1 if unable
             FILE *file = fopen(filename, "r");
-            if (file == NULL)
+            if (!file)
             {
                 printf("Error: Could not find or open the file.\n");
                 return 1;
@@ -75,10 +77,9 @@ int main()
             // also counts number of records (lines)
             while (fgets(line, 100, file) != NULL)
             {
-                tokeniseRecord(line, ",", date, time, steps);
-                strcpy(data[lines].date, date);
-                strcpy(data[lines].time, time);
-                data[lines].steps = atoi(steps);
+                // breaks up each line using ',' and stores the data into their respective variables in the array
+                //also counts total records (lines)
+                tokeniseRecord(line, ",", data[lines].date, data[lines].time, &data[lines].steps);
                 lines++;
             }
             fclose(file);

@@ -8,7 +8,8 @@
         "string": "c",
         "string_view": "c",
         "stdlib.h": "c",
-        "fitnessdatastruct.h": "c"
+        "fitnessdatastruct.h": "c",
+        "random": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

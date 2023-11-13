@@ -15,6 +15,7 @@ typedef struct {
 } FITNESS_DATA;
 
 // Helper function prototypes
-void tokeniseRecord(const char *input, const char *delimiter, char *date, char *time, char *steps);
+// changed 'char *steps' to 'int *steps'
+void tokeniseRecord(const char *input, const char *delimiter, char *date, char *time, int *steps);
 
 #endif // FITNESS_DATA_STRUCT_H
