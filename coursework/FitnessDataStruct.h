@@ -70,7 +70,7 @@ void stepsLeast(FITNESS_DATA *dataArray, int total, char *dateLeast, char *timeL
 	{
 		if (dataArray[i].steps < minSteps) // when least steps (so far) is encountered
 		{
-			// updates relavant variables
+			// updates relevant variables
 			minSteps = dataArray[i].steps;
 			strcpy(dateLeast, dataArray[i].date);
 			strcpy(timeLeast, dataArray[i].time);
@@ -95,7 +95,7 @@ void stepsMost(FITNESS_DATA *dataArray, int total, char *dateMost, char *timeMos
 }
 
 // Calculates mean steps taken
-// @return Mean steps
+// @return Mean steps, rounded to the nearest integer
 int stepsMean(FITNESS_DATA *dataArray, int total)
 {
 	// if array is empty (user hasn't loaded file yet), prevents dividing by 0
@@ -104,13 +104,14 @@ int stepsMean(FITNESS_DATA *dataArray, int total)
 		return 0;
 	}
 	// sums all steps
-	int totalSteps = 0, mean = 0;
+	// is a double so that the final mean can be rounded
+	double totalSteps = 0; 
 	for (int i = 0; i < total; i++)
 	{
 		totalSteps += dataArray[i].steps;
 	}
 	// calculates mean (rounded), returns it
-	mean = round(totalSteps / total);
+	int mean = round(totalSteps / total);
 	return mean;
 }
 
