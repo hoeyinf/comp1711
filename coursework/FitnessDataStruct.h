@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 
 #define buffer 100
 
@@ -105,14 +104,22 @@ int stepsMean(FITNESS_DATA *dataArray, int total)
 	}
 	// sums all steps
 	// is a double so that the final mean can be rounded
-	double totalSteps = 0; 
+	double totalSteps = 0;
 	for (int i = 0; i < total; i++)
 	{
 		totalSteps += dataArray[i].steps;
 	}
 	// calculates mean (rounded), returns it
-	int mean = round(totalSteps / total);
-	return mean;
+	double unrounded = totalSteps / total;
+	int mean = unrounded;
+	if (unrounded - mean >= 0.5)
+	{
+		return mean+1;
+	}
+	else
+	{
+		return mean;
+	}
 }
 
 // Finds the longest consecutive period >500 steps, and the starting/ending dates and times
