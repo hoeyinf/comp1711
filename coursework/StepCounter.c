@@ -1,14 +1,12 @@
 // FITNESS_DATA struct and tokeniseRecord function moved to header file
 #include "FitnessDataStruct.h"
 
-// Define any additional variables here
-int total = 0;
+int records = 0;
 char choice, date[11], time[6], dateEnd[11], timeEnd[6];
 // Global variables for filename and FITNESS_DATA array
 char filename[100];
 FITNESS_DATA data[200];
 
-// Complete the main function
 int main()
 {
     while (1) // will infinitely loop (until Quit is selected, or invalid file name is entered)
@@ -24,8 +22,8 @@ int main()
                "Q: Quit\n"
                "Enter choice: ");
         // user inputs choice
-        // space needed before %c, or it reads \n from entering input, instead of the actual input
-        scanf(" %c", &choice);
+        scanf("%c", &choice);
+        while(getchar() != '\n'){}
         // switch case using user choice, choice is case-insensitive
         switch (choice)
         {
@@ -33,6 +31,7 @@ int main()
         case 'a':
             printf("Input filename: ");
             scanf("%s", filename);
+            while(getchar() != '\n'){}
             // tries to open filename, prints error message and returns 1 if unable
             FILE *file = fopen(filename, "r");
             if (!file)
@@ -41,44 +40,35 @@ int main()
                 return 1;
             }
             // stores contents of file into the array, returns total number of records
-            total = count_and_store(file, data);
+            records = count_and_store(file, data);
             fclose(file);
             break;
         case 'B':
         case 'b':
-            // prints total records
-            printf("Total records: %d\n", total);
+            printf("Total records: %d\n", records);
             break;
         case 'C':
         case 'c':
-            // finds record with fewest steps, returns its date and time
-            stepsLeast(data, total, date, time);
-            // prints date and time
+            leastSteps(data, records, date, time);
             printf("Fewest steps: %s %s\n", date, time);
             break;
         case 'D':
         case 'd':
-            // finds record with most steps, returns its date and time
-            stepsMost(data, total, date, time);
-            // prints date and time
+            mostSteps(data, records, date, time);
             printf("Largest steps: %s %s\n", date, time);
             break;
         case 'E':
         case 'e':
-            // stepsMean() finds the mean steps of the array
-            printf("Mean step count: %d\n", stepsMean(data, total));
+            printf("Mean step count: %d\n", meanSteps(data, records));
             break;
         case 'F':
         case 'f':
-            // finds longest consecutive period of >500 steps, returns start/end dates and times
-            longestPeriod(data, total, date, time, dateEnd, timeEnd);
-            // prints start/end dates and times
+            longestPeriod(data, records, date, time, dateEnd, timeEnd);
             printf("Longest period start: %s %s\nLongest period end: %s %s\n",
                    date, time, dateEnd, timeEnd);
             break;
         case 'Q':
         case 'q':
-            // quit
             return 0;
         default: // when something other than the valid cases above is entered
             printf("Invalid choice. Try again.\n");

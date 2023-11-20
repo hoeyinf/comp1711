@@ -9,7 +9,9 @@
         "string_view": "c",
         "stdlib.h": "c",
         "fitnessdatastruct.h": "c",
-        "random": "cpp"
+        "random": "cpp",
+        "initializer_list": "c",
+        "utility": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -15,15 +15,11 @@ typedef struct
 	int steps;
 } FITNESS_DATA;
 
-// Functions
-
 // Helper function. Splits each file line into relevant data
 void tokeniseRecord(const char *input, const char *delimiter,
 					char *date, char *time, int *steps) // Changed 'char *steps' to 'int *steps'
 {
-	// Create a copy of the input string as strtok modifies the string
 	char *inputCopy = strdup(input);
-	// Tokenize the copied string
 	char *token = strtok(inputCopy, delimiter);
 	if (token != NULL)
 	{
@@ -39,7 +35,6 @@ void tokeniseRecord(const char *input, const char *delimiter,
 	{
 		*steps = atoi(token); // changed 'strcpy(steps, token)' to '*steps = atoi(token)'
 	}
-	// Free the duplicated string
 	free(inputCopy);
 }
 
@@ -60,11 +55,11 @@ int count_and_store(FILE *inputFile, FITNESS_DATA *dataArray)
 
 // Finds the record in the array with the lowest steps
 // @return Date and time of fewest steps
-void stepsLeast(FITNESS_DATA *dataArray, int total, char *dateLeast, char *timeLeast)
+void leastSteps(FITNESS_DATA *dataArray, int rows, char *dateLeast, char *timeLeast)
 {
 	int minSteps = 9999;
 	// loops through data
-	for (int i = 0; i < total; i++)
+	for (int i = 0; i < rows; i++)
 	{
 		if (dataArray[i].steps < minSteps) // when least steps (so far) is encountered
 		{
@@ -78,10 +73,10 @@ void stepsLeast(FITNESS_DATA *dataArray, int total, char *dateLeast, char *timeL
 
 // Finds the record in the array with the most steps
 // @return Date and time of most steps
-void stepsMost(FITNESS_DATA *dataArray, int total, char *dateMost, char *timeMost)
+void mostSteps(FITNESS_DATA *dataArray, int rows, char *dateMost, char *timeMost)
 {
 	int maxSteps = -1;
-	for (int i = 0; i < total; i++)
+	for (int i = 0; i < rows; i++)
 	{
 		if (dataArray[i].steps > maxSteps)
 		{
@@ -94,26 +89,26 @@ void stepsMost(FITNESS_DATA *dataArray, int total, char *dateMost, char *timeMos
 
 // Calculates mean steps taken
 // @return Mean steps, rounded to the nearest integer
-int stepsMean(FITNESS_DATA *dataArray, int total)
+int meanSteps(FITNESS_DATA *dataArray, int rows)
 {
 	// if array is empty (user hasn't loaded file yet), prevents dividing by 0
-	if (total == 0)
+	if (rows == 0)
 	{
 		return 0;
 	}
 	// sums all steps
 	// is a double so that the final mean can be rounded
-	double totalSteps = 0;
-	for (int i = 0; i < total; i++)
+	double total = 0;
+	for (int i = 0; i < rows; i++)
 	{
-		totalSteps += dataArray[i].steps;
+		total += dataArray[i].steps;
 	}
 	// calculates mean (rounded), returns it
-	double unrounded = totalSteps / total;
+	double unrounded = total / rows;
 	int mean = unrounded;
 	if (unrounded - mean >= 0.5)
 	{
-		return mean+1;
+		return mean + 1;
 	}
 	else
 	{
@@ -123,16 +118,16 @@ int stepsMean(FITNESS_DATA *dataArray, int total)
 
 // Finds the longest consecutive period >500 steps, and the starting/ending dates and times
 // @return Starting date and time, ending date and time
-void longestPeriod(FITNESS_DATA *dataArray, int total, char *dateStart, char *timeStart, char *dateEnd, char *timeEnd)
+void longestPeriod(FITNESS_DATA *dataArray, int rows, char *dateStart, char *timeStart, char *dateEnd, char *timeEnd)
 {
 	// if array is empty (user hasn't loaded file yet), prevents a Segmentation fault
-	if (total == 0)
+	if (rows == 0)
 	{
 		return;
 	}
 	int length = 0, lengthest = 0, end;
 	// finds length of longest consecutive time period of 500+ steps, and its end date/time
-	for (int i = 0; i < total; i++)
+	for (int i = 0; i < rows; i++)
 	{
 		if (dataArray[i].steps > 500)
 		{
