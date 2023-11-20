@@ -7,7 +7,7 @@
 
 #define buffer 100
 
-// Define an appropriate struct
+// FITNESS_DATA struct
 typedef struct
 {
 	char date[11];
@@ -57,14 +57,14 @@ int count_and_store(FILE *inputFile, FITNESS_DATA *dataArray)
 // @return Date and time of fewest steps
 void leastSteps(FITNESS_DATA *dataArray, int rows, char *dateLeast, char *timeLeast)
 {
-	int minSteps = 9999;
+	int min = 9999;
 	// loops through data
 	for (int i = 0; i < rows; i++)
 	{
-		if (dataArray[i].steps < minSteps) // when least steps (so far) is encountered
+		if (dataArray[i].steps < min) // when least steps (so far) is encountered
 		{
 			// updates relevant variables
-			minSteps = dataArray[i].steps;
+			min = dataArray[i].steps;
 			strcpy(dateLeast, dataArray[i].date);
 			strcpy(timeLeast, dataArray[i].time);
 		}
@@ -75,12 +75,13 @@ void leastSteps(FITNESS_DATA *dataArray, int rows, char *dateLeast, char *timeLe
 // @return Date and time of most steps
 void mostSteps(FITNESS_DATA *dataArray, int rows, char *dateMost, char *timeMost)
 {
-	int maxSteps = -1;
+	int max = -1;
 	for (int i = 0; i < rows; i++)
 	{
-		if (dataArray[i].steps > maxSteps)
+		if (dataArray[i].steps > max) // when most steps (so far) is encountered
 		{
-			maxSteps = dataArray[i].steps;
+			// updates relevant variables
+			max = dataArray[i].steps;
 			strcpy(dateMost, dataArray[i].date);
 			strcpy(timeMost, dataArray[i].time);
 		}
@@ -96,13 +97,14 @@ int meanSteps(FITNESS_DATA *dataArray, int rows)
 	{
 		return 0;
 	}
+
 	// sums all steps
-	// is a double so that the final mean can be rounded
 	double total = 0;
 	for (int i = 0; i < rows; i++)
 	{
 		total += dataArray[i].steps;
 	}
+
 	// calculates mean (rounded), returns it
 	double unrounded = total / rows;
 	int mean = unrounded;
@@ -126,6 +128,7 @@ void longestPeriod(FITNESS_DATA *dataArray, int rows, char *dateStart, char *tim
 		return;
 	}
 	int length = 0, lengthest = 0, end;
+
 	// finds length of longest consecutive time period of 500+ steps, and its end date/time
 	for (int i = 0; i < rows; i++)
 	{
@@ -145,6 +148,7 @@ void longestPeriod(FITNESS_DATA *dataArray, int rows, char *dateStart, char *tim
 			length = 0;
 		}
 	}
+
 	// stores the start/end dates and times
 	strcpy(dateStart, dataArray[end - lengthest + 1].date);
 	strcpy(timeStart, dataArray[end - lengthest + 1].time);

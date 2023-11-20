@@ -21,17 +21,20 @@ int main()
                "F: Find the longest continuous period where the step count is above 500 steps\n"
                "Q: Quit\n"
                "Enter choice: ");
+
         // user inputs choice
         scanf("%c", &choice);
-        while(getchar() != '\n'){}
+        while (getchar() != '\n');
+
         // switch case using user choice, choice is case-insensitive
         switch (choice)
         {
         case 'A':
         case 'a':
+            // user inputs filename
             printf("Input filename: ");
             scanf("%s", filename);
-            while(getchar() != '\n'){}
+            while (getchar() != '\n');
             // tries to open filename, prints error message and returns 1 if unable
             FILE *file = fopen(filename, "r");
             if (!file)
@@ -70,7 +73,8 @@ int main()
         case 'Q':
         case 'q':
             return 0;
-        default: // when something other than the valid cases above is entered
+        // when something other than the valid cases above is entered
+        default:
             printf("Invalid choice. Try again.\n");
             break;
         }
