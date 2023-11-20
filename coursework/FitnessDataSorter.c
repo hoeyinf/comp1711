@@ -54,7 +54,7 @@ bool validate_store_count(FILE *inputFile, FITNESS_DATA *dataArray, int *records
                 countcomma++;
             }
         }
-        
+
         // if record has an empty field, or not exactly 3 fields, returns true for an error
         if (line[0] == ',' || strstr(line, ",,") != NULL ||
             line[strlen(line) - 2] == ',' || countcomma != 2)
@@ -146,6 +146,7 @@ int main()
     if (error == true)
     {
         printf("Error: invalid file\n");
+        fclose(file);
         return 1;
     }
     fclose(file);
