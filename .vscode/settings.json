@@ -11,7 +11,8 @@
         "fitnessdatastruct.h": "c",
         "random": "cpp",
         "initializer_list": "c",
-        "utility": "c"
+        "utility": "c",
+        "algorithm": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

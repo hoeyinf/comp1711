@@ -148,12 +148,15 @@ void longestPeriod(FITNESS_DATA *dataArray, int rows, char *dateStart, char *tim
 			length = 0;
 		}
 	}
-
-	// stores the start/end dates and times
-	strcpy(dateStart, dataArray[end - lengthest + 1].date);
-	strcpy(timeStart, dataArray[end - lengthest + 1].time);
-	strcpy(dateEnd, dataArray[end].date);
-	strcpy(timeEnd, dataArray[end].time);
+	// if there is a period with >500 steps
+	if (lengthest != 0)
+	{
+		// stores the start/end dates and times
+		strcpy(dateStart, dataArray[end - lengthest + 1].date);
+		strcpy(timeStart, dataArray[end - lengthest + 1].time);
+		strcpy(dateEnd, dataArray[end].date);
+		strcpy(timeEnd, dataArray[end].time);
+	}
 }
 
 #endif // FITNESS_DATA_STRUCT_H
