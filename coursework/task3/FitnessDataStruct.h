@@ -1,3 +1,6 @@
+#ifndef FITNESS_DATA_STRUCT_H
+#define FITNESS_DATA_STRUCT_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -125,35 +128,4 @@ void output_tsv(char *filename, FITNESS_DATA *dataArray, int rows)
     printf("Data sorted and written to %s\n", filename);
 }
 
-char filename[100];
-int records;
-bool error;
-FITNESS_DATA data[200];
-
-int main()
-{
-    printf("Enter Filename: ");
-    scanf("%s", filename);
-    while (getchar() != '\n')
-        ;
-    FILE *file = fopen(filename, "r");
-    if (!file)
-    {
-        printf("Error: invalid file\n");
-        return 1;
-    }
-    error = validate_store_count(file, data, &records);
-    if (error == true)
-    {
-        printf("Error: invalid file\n");
-        fclose(file);
-        return 1;
-    }
-    fclose(file);
-
-    sort_data(data, records);
-
-    output_tsv(filename, data, records);
-
-    return 0;
-}
+#endif
