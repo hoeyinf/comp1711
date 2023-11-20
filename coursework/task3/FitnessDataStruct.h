@@ -39,7 +39,7 @@ void tokeniseRecord(const char *input, const char *delimiter,
 }
 
 // Checks each line for correct format, stores it into the array, and counts number of records
-// @return True if file is in invalid format)
+// @return True if file is in invalid format
 bool validate_store_count(FILE *inputFile, FITNESS_DATA *dataArray, int *records)
 {
     bool error = false;
