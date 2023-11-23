@@ -92,30 +92,33 @@ void mostSteps(FITNESS_DATA *dataArray, int rows, char *dateMost, char *timeMost
 // @return Mean steps, rounded to the nearest integer
 int meanSteps(FITNESS_DATA *dataArray, int rows)
 {
-	// if array is empty (user hasn't loaded file yet), prevents dividing by 0
-	if (rows == 0)
+	int mean;
+	double total, unrounded;
+	// prevents dividing by 0 when calculating mean, if user hasn't loaded a valid file yet
+	if (rows != 0)
 	{
-		return 0;
-	}
 
-	// sums all steps
-	double total = 0;
-	for (int i = 0; i < rows; i++)
-	{
-		total += dataArray[i].steps;
-	}
+		// sums all steps
+		total = 0;
+		for (int i = 0; i < rows; i++)
+		{
+			total += dataArray[i].steps;
+		}
 
-	// calculates mean (rounded), returns it
-	double unrounded = total / rows;
-	int mean = unrounded;
-	if (unrounded - mean >= 0.5)
-	{
-		return mean + 1;
+		// calculates mean (rounded), returns it
+		unrounded = total / rows;
+		mean = unrounded;
+		if (unrounded - mean >= 0.5)
+		{
+			mean++;
+		}
 	}
 	else
+	// if rows == 0
 	{
-		return mean;
+		mean = 0;
 	}
+	return mean;
 }
 
 // Finds the longest consecutive period >500 steps, and the starting/ending dates and times

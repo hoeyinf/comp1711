@@ -1,10 +1,9 @@
 // FITNESS_DATA struct and tokeniseRecord function moved to header file
 #include "FitnessDataStruct.h"
 
-int records = 0;
-char choice, date[11], time[6], dateEnd[11], timeEnd[6];
 // Global variables for filename and FITNESS_DATA array
-char filename[100];
+int records = 0;
+char filename[100], choice, date[11], time[6], dateEnd[11], timeEnd[6];
 FITNESS_DATA data[200];
 
 int main()
