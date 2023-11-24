@@ -131,17 +131,18 @@ void longestPeriod(FITNESS_DATA *dataArray, int rows, char *dateStart, char *tim
 			if (dataArray[i].steps > 500)
 			{
 				length++;
+				// if current period (of 500+ steps) is greater than longest period so far
+				// use a nested if, so it will update if longest period ends on last entry
+				if (length > lengthest)
+				{
+					lengthest = length;
+					// stores the index of the end of the current longest period
+					end = i;
+				}
 			}
-			// if current period (of 500+ steps) is greater than longest period so far
-			else if (length > lengthest)
+			else // when steps <= 500
 			{
-				lengthest = length;
-				// stores the index of the end of the current longest period (previous index)
-				end = i - 1;
-			}
-			// resets length when steps <= 500
-			else if (dataArray[i].steps <= 500)
-			{
+				// resets length since it's not consecutive anymore
 				length = 0;
 			}
 		}
