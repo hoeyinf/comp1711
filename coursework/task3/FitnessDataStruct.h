@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
 #define buffer 100
 
@@ -17,7 +16,7 @@ typedef struct
 } FITNESS_DATA;
 
 void tokeniseRecord(const char *input, const char *delimiter,
-                    char *date, char *time, int *steps)
+                    char *date, char *time, char *steps)
 {
     char *inputCopy = strdup(input);
     char *token = strtok(inputCopy, delimiter);
@@ -33,18 +32,16 @@ void tokeniseRecord(const char *input, const char *delimiter,
     token = strtok(NULL, delimiter);
     if (token != NULL)
     {
-        *steps = atoi(token);
+        strcpy(steps, token);
     }
     free(inputCopy);
 }
 
-// Checks each line for correct format, stores it into the array, and counts number of records
-// @return True if file is in invalid format
-bool validate_store_count(FILE *inputFile, FITNESS_DATA *dataArray, int *records)
+// checks if file is in the correct format
+int validate_file(FILE *inputFile)
 {
-    bool error = false;
-    int countcomma, count = 0;
-    char line[buffer];
+    int error = 0, countcomma, isint;
+    char line[buffer], date[11], time[6], steps[10];
     while (fgets(line, buffer, inputFile) != NULL)
     {
         // counts number of ',' in line
@@ -58,38 +55,64 @@ bool validate_store_count(FILE *inputFile, FITNESS_DATA *dataArray, int *records
             }
         }
 
-        // if record has an empty field, or not exactly 3 fields, returns true for an error
-        if (line[0] == ',' || strstr(line, ",,") != NULL ||
-            line[strlen(line) - 2] == ',' || countcomma != 2)
+        tokeniseRecord(line, ",", date, time, steps);
+
+        // checks that steps is an integer
+        // loops through its string, converts each char using atoi()
+        // if the char's atoi value is 0 (but not actually '0'), then it's not an int
+        isint = 1;
+        for (int i = 0; i < strlen(steps)-1; i++){
+            if (atoi(&steps[i]) == 0 && steps[i] != '0'){
+                isint = 0;
+                break;
+            }
+        }
+
+        // checks: if there are any empty fields
+        // if there are too many/little fields
+        // if date and time are correct length
+        // if steps is an integer
+        if (line[0] == ',' ||
+            strstr(line, ",,") != NULL ||
+            line[strlen(line) - 2] == ',' ||
+            countcomma != 2 ||
+            strlen(date) != 10 ||
+            strlen(time) != 5 ||
+            isint == 0)
         {
-            error = true;
-            return error;
+            error = 1;
+            break;
         }
+    }
+    return error;
+}
 
-        tokeniseRecord(line, ",", dataArray[count].date, dataArray[count].time, &dataArray[count].steps);
+// Reads and stores records from file into FITNESS_DATA array, counts number of records
+void count_and_store(FILE *inputFile, FITNESS_DATA *dataArray, int *records)
+{
+    int count = 0;
+    char line[buffer], steps[10];
+    rewind(inputFile);
+    while (fgets(line, buffer, inputFile) != NULL)
+    {
 
-        // if date or time has an incorrect length, return true for an error
-        if (strlen(dataArray[count].date) != 10 || strlen(dataArray[count].time) != 5){
-            error = true;
-            return error;
-        }
+        tokeniseRecord(line, ",", dataArray[count].date, dataArray[count].time, steps);
+        dataArray[count].steps = atoi(steps);
         count++;
     }
     // updates records with number of records in file
     *records = count;
-    return error;
 }
 
 // sorts FITNESS_DATA array from highest to lowest number of steps, using a bubble sort
 void sort_data(FITNESS_DATA *dataArray, int rows)
 {
-    bool sorted = false;
-    int compareOne, compareTwo;
+    int sorted = 0, compareOne, compareTwo;
     char tempDate[11], tempTime[6];
     // loops until no swaps are made through the array (array is sorted)
-    while (sorted == false)
+    while (sorted == 0)
     {
-        sorted = true;
+        sorted = 1;
         for (int i = 0; i < rows - 1; i++)
         {
             compareOne = dataArray[i].steps;
@@ -108,12 +131,13 @@ void sort_data(FITNESS_DATA *dataArray, int rows)
                 dataArray[i + 1].steps = compareOne;
                 strcpy(dataArray[i + 1].date, tempDate);
                 strcpy(dataArray[i + 1].time, tempTime);
-                sorted = false;
+                sorted = 0;
             }
         }
     }
 }
 
+// outputs contents of array as a tsv file
 void output_tsv(char *filename, FITNESS_DATA *dataArray, int rows)
 {
     // filename changed to have .tsv at the end of it

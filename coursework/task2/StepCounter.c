@@ -42,7 +42,7 @@ int main()
                 return 1;
             }
             // stores contents of file into the array, returns total number of records
-            records = count_and_store(file, data);
+            count_and_store(file, data, &records);
             fclose(file);
             break;
         case 'B':

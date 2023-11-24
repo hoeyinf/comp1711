@@ -2,7 +2,6 @@
 
 char filename[100];
 int records;
-bool error;
 FITNESS_DATA data[200];
 
 int main()
@@ -10,7 +9,8 @@ int main()
     // user inputs filename, error if file doesn't exist
     printf("Enter Filename: ");
     scanf("%s", filename);
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     FILE *file = fopen(filename, "r");
     if (!file)
     {
@@ -18,15 +18,16 @@ int main()
         return 1;
     }
 
-    // function will check for correct file format while reading/storing data
-    // returns true if file is invalid
-    error = validate_store_count(file, data, &records);
-    fclose(file);
-    if (error == true)
+    // checks for correct file format
+    if (validate_file(file) == 1)
     {
+        fclose(file);
         printf("Error: invalid file\n");
         return 1;
     }
+
+    count_and_store(file, data, &records);
+    fclose(file);
 
     // sorts data, using bubble sort
     sort_data(data, records);

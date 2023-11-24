@@ -38,9 +38,8 @@ void tokeniseRecord(const char *input, const char *delimiter,
 	free(inputCopy);
 }
 
-// Reads and stores records from file into FITNESS_DATA array
-// @return Total number of records
-int count_and_store(FILE *inputFile, FITNESS_DATA *dataArray)
+// Reads and stores records from file into FITNESS_DATA array, counts number of records
+void count_and_store(FILE *inputFile, FITNESS_DATA *dataArray, int *records)
 {
 	int count = 0;
 	char line[buffer];
@@ -50,11 +49,10 @@ int count_and_store(FILE *inputFile, FITNESS_DATA *dataArray)
 		tokeniseRecord(line, ",", dataArray[count].date, dataArray[count].time, &dataArray[count].steps);
 		count++;
 	}
-	return count;
+	*records = count;
 }
 
-// Finds the record in the array with the lowest steps
-// @return Date and time of fewest steps
+// Finds the record in the array with the lowest steps, retrieves its date and time
 void leastSteps(FITNESS_DATA *dataArray, int rows, char *dateLeast, char *timeLeast)
 {
 	int min = 9999;
@@ -71,8 +69,7 @@ void leastSteps(FITNESS_DATA *dataArray, int rows, char *dateLeast, char *timeLe
 	}
 }
 
-// Finds the record in the array with the most steps
-// @return Date and time of most steps
+// Finds the record in the array with the most steps, retrieves its date and time
 void mostSteps(FITNESS_DATA *dataArray, int rows, char *dateMost, char *timeMost)
 {
 	int max = -1;
@@ -97,7 +94,6 @@ int meanSteps(FITNESS_DATA *dataArray, int rows)
 	// prevents dividing by 0 when calculating mean, if user hasn't loaded a valid file yet
 	if (rows != 0)
 	{
-
 		// sums all steps
 		total = 0;
 		for (int i = 0; i < rows; i++)
@@ -122,43 +118,41 @@ int meanSteps(FITNESS_DATA *dataArray, int rows)
 }
 
 // Finds the longest consecutive period >500 steps, and the starting/ending dates and times
-// @return Starting date and time, ending date and time
 void longestPeriod(FITNESS_DATA *dataArray, int rows, char *dateStart, char *timeStart, char *dateEnd, char *timeEnd)
 {
-	// if array is empty (user hasn't loaded file yet), prevents a Segmentation fault
-	if (rows == 0)
+	// if array is empty (user hasn't loaded file yet), prevents a segmentation fault
+	if (rows != 0)
 	{
-		return;
-	}
-	int length = 0, lengthest = 0, end;
+		int length = 0, lengthest = 0, end;
 
-	// finds length of longest consecutive time period of 500+ steps, and its end date/time
-	for (int i = 0; i < rows; i++)
-	{
-		if (dataArray[i].steps > 500)
+		// finds length of longest consecutive time period of 500+ steps, and its end date/time
+		for (int i = 0; i < rows; i++)
 		{
-			length++;
-		}
-		else
-		{
+			if (dataArray[i].steps > 500)
+			{
+				length++;
+			}
 			// if current period (of 500+ steps) is greater than longest period so far
+			// needs to be a separate if-statement in case last entry ends the longest period
 			if (length > lengthest)
 			{
 				lengthest = length;
-				end = i - 1; // stores the index of the end of the current longest period (previous index)
+				// stores the index of the end of the current longest period (previous index)
+				end = i - 1;
+
+				// resets length (since it's not consecutive anymore)
+				length = 0;
 			}
-			// resets length (since it's not consecutive anymore)
-			length = 0;
 		}
-	}
-	// if there is a period with >500 steps
-	if (lengthest != 0)
-	{
-		// stores the start/end dates and times
-		strcpy(dateStart, dataArray[end - lengthest + 1].date);
-		strcpy(timeStart, dataArray[end - lengthest + 1].time);
-		strcpy(dateEnd, dataArray[end].date);
-		strcpy(timeEnd, dataArray[end].time);
+		// if there is a period with >500 steps
+		if (lengthest != 0)
+		{
+			// stores the start/end dates and times
+			strcpy(dateStart, dataArray[end - lengthest + 1].date);
+			strcpy(timeStart, dataArray[end - lengthest + 1].time);
+			strcpy(dateEnd, dataArray[end].date);
+			strcpy(timeEnd, dataArray[end].time);
+		}
 	}
 }
 
