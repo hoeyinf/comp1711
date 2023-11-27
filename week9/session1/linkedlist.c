@@ -18,12 +18,13 @@ typedef struct node
  */
 void add_new_node(node *linked_list, int value)
 {
+    printf("Adding %d to linked list...\n\n", value);
     node *current = linked_list;
     while (current->next != NULL)
     {
         current = current->next;
     }
-    node *new = malloc(sizeof(struct node));
+    node *new = malloc(sizeof(node));
     new->value = value;
     new->next = NULL;
     current->next = new;
@@ -37,20 +38,32 @@ void add_new_node(node *linked_list, int value)
  */
 void remove_node(node *linked_list, int pos)
 {
+    node *next;
+    node *current = linked_list;
+    printf("Removing position %d in linked list...\n\n", pos);
     if (pos == 0)
     {
-        linked_list = linked_list->next;
+        next = current->next;
+        // replaces first node with the second node
+        current->value = next->value;
+        current->next = next->next;
     }
-    int counter = 0;
-    node *current = linked_list;
-    while (counter < pos - 1)
+    else
     {
-        current = current->next;
-        counter++;
+        int counter = 0;
+        // loop until the position before the node to delete
+        while (counter < pos - 1)
+        {
+            current = current->next;
+            counter++;
+        }
+
+        // change pointer of current node to the pointer of node being deleted
+        next = current->next;
+        current->next = next->next;
     }
-    node *next = current->next;
-    current->next = next->next;
-    // be extra careful about removing the first and the last item :)
+    // delete node
+    free(next);
 }
 
 /**
@@ -58,16 +71,17 @@ void remove_node(node *linked_list, int pos)
  *
  * @param linked_list the linked list.
  */
-void print_linked_list(node *linked_list, int length)
+void print_linked_list(node *linked_list)
 {
     node *current = linked_list;
-    int counter = 0;
-    while (counter < length)
+    int i = 0;
+    while (current != NULL)
     {
-        printf("%d\n", current->value);
+        printf("[%d]\t%d\t%p\n", i, current->value, current->next);
         current = current->next;
-        counter++;
+        i++;
     }
+    printf("\n");
 }
 
 /**
@@ -90,17 +104,23 @@ int length(node *linked_list)
 
 int main()
 {
-
     // creating a first node to get us started...
     node first;
-    first.value = 1;
+    first.value = 0;
     first.next = NULL;
 
     // this will be our linked list from now on.
     node *linked_list = &first;
-    add_new_node(linked_list, 2);
-    add_new_node(linked_list, 3);
-    add_new_node(linked_list, 4);
+    for (int i = 1; i < 5; i++)
+    {
+        add_new_node(linked_list, i);
+    }
+    printf("Length of linked list is %d\n\n", length(linked_list));
+    print_linked_list(linked_list);
+    remove_node(linked_list, 0);
+    print_linked_list(linked_list);
+    add_new_node(linked_list, 69);
+    print_linked_list(linked_list);
     int len = length(linked_list);
-    print_linked_list(linked_list, len);
+    printf("Length of linked list is %d\n\n", len);
 }
