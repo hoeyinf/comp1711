@@ -23,10 +23,10 @@ void add_new_node(node *linked_list, int value)
     {
         current = current->next;
     }
-    node new;
-    new.value = value;
-    new.next = NULL;
-    current->next = &new;
+    node *new = malloc(sizeof(struct node));
+    new->value = value;
+    new->next = NULL;
+    current->next = new;
 }
 
 /**
@@ -82,8 +82,6 @@ int length(node *linked_list)
     node *current = linked_list;
     while (current->next != NULL)
     {
-        printf("%d\n", current->value);
-        printf("Next in list: %p\n", current->next);
         current = current->next;
         counter++;
     }
@@ -104,4 +102,5 @@ int main()
     add_new_node(linked_list, 3);
     add_new_node(linked_list, 4);
     int len = length(linked_list);
+    print_linked_list(linked_list, len);
 }
