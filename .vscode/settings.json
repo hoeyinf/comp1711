@@ -12,7 +12,13 @@
         "random": "cpp",
         "initializer_list": "c",
         "utility": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "optional": "c",
+        "istream": "c",
+        "ostream": "c",
+        "system_error": "c",
+        "functional": "c",
+        "tuple": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
