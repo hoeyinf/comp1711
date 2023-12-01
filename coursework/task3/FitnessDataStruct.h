@@ -83,6 +83,10 @@ int validate_file(FILE *inputFile)
             error = 1;
             break;
         }
+        for (int i = 0; i < strlen(line)-3; i++){
+            printf("%c", line[i]);
+        }
+        printf("\n");
     }
     return error;
 }
