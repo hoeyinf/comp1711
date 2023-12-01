@@ -47,7 +47,7 @@ int validate_file(FILE *inputFile)
         // counts number of ',' in line
         // should only have 2 ',' for three fields
         countcomma = 0;
-        for (int i = 0; i<strlen(line)-1; i++)
+        for (int i = 0; i < strlen(line)-2; i++)
         {
             if (line[i] == ',')
             {
@@ -83,10 +83,6 @@ int validate_file(FILE *inputFile)
             error = 1;
             break;
         }
-        for (int i = 0; i < strlen(line)-3; i++){
-            printf("%c", line[i]);
-        }
-        printf("\n");
     }
     return error;
 }
