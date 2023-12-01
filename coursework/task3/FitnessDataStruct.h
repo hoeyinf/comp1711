@@ -47,7 +47,7 @@ int validate_file(FILE *inputFile)
         // counts number of ',' in line
         // should only have 2 ',' for three fields
         countcomma = 0;
-        for (int i = 0; i < strlen(line) - 1; i++)
+        for (int i = 0; i<strlen(line)-1; i++)
         {
             if (line[i] == ',')
             {
@@ -74,7 +74,7 @@ int validate_file(FILE *inputFile)
         // if steps is an integer
         if (line[0] == ',' ||
             strstr(line, ",,") != NULL ||
-            line[strlen(line) - 2] == ',' ||
+            line[strlen(line)-3] == ',' ||
             countcomma != 2 ||
             strlen(date) != 10 ||
             strlen(time) != 5 ||
@@ -95,7 +95,6 @@ void count_and_store(FILE *inputFile, FITNESS_DATA *dataArray, int *records)
     rewind(inputFile);
     while (fgets(line, buffer, inputFile) != NULL)
     {
-
         tokeniseRecord(line, ",", dataArray[count].date, dataArray[count].time, steps);
         dataArray[count].steps = atoi(steps);
         count++;
