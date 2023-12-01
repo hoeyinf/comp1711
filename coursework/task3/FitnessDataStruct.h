@@ -61,7 +61,7 @@ int validate_file(FILE *inputFile)
         // loops through its string, converts each char using atoi()
         // if the char's atoi value is 0 (but not actually '0'), then it's not an int
         isint = 1;
-        for (int i = 0; i < strlen(steps)-1; i++){
+        for (int i = 0; i < strlen(steps)-2; i++){
             if (atoi(&steps[i]) == 0 && steps[i] != '0'){
                 isint = 0;
                 break;
@@ -108,7 +108,7 @@ void count_and_store(FILE *inputFile, FITNESS_DATA *dataArray, int *records)
 void sort_data(FITNESS_DATA *dataArray, int rows)
 {
     int sorted = 0, compareOne, compareTwo;
-    char tempDate[11], tempTime[6];
+    FITNESS_DATA temp;
     // loops until no swaps are made through the array (array is sorted)
     while (sorted == 0)
     {
@@ -120,17 +120,12 @@ void sort_data(FITNESS_DATA *dataArray, int rows)
             // swaps values when next element is higher than current element
             if (compareTwo > compareOne)
             {
-                // store dataArray[i] in temporary holding variables
-                strcpy(tempDate, dataArray[i].date);
-                strcpy(tempTime, dataArray[i].time);
+                // store dataArray[i] in temporary holding variable
+                temp = dataArray[i];
                 // replace dataArray[i] with dataArray[i+1]
-                dataArray[i].steps = compareTwo;
-                strcpy(dataArray[i].date, dataArray[i + 1].date);
-                strcpy(dataArray[i].time, dataArray[i + 1].time);
-                // replace dataArray[i+1] with dataArray[i] using temp variables
-                dataArray[i + 1].steps = compareOne;
-                strcpy(dataArray[i + 1].date, tempDate);
-                strcpy(dataArray[i + 1].time, tempTime);
+                dataArray[i] = dataArray[i+1];
+                // replace dataArray[i+1] with dataArray[i] using temp variable
+                dataArray[i+1] = temp;
                 sorted = 0;
             }
         }
